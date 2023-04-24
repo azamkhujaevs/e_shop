@@ -1,0 +1,14 @@
+Название : {{ product.product_name }} <br>
+Описание : {{ product.product_des }} <br>
+Цена : {{ product.product_price }} <br>
+Остаток на складе : {{ product.product_count }}
+<hr>
+{% if user.is_authenticated %}
+<form action="/add-product/{{ product.id }}" method="post">
+    {% csrf_token %}
+    <input type="number" name="pr_count" min="1" max="{{ product.product_count }}">
+    <button>Купить</button>
+</form>
+{% else %}
+<a href="/accounts/login">Войдите чтобы купить</a>
+{% endif %}

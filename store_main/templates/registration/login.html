@@ -1,0 +1,6 @@
+<form method="post">
+    {% csrf_token %}
+    <input type="text" required placeholder="Введите username" name="username">
+    <input type="password" required placeholder="Пароль" name="password">
+    <button>Войти в аккаунт</button>
+</form>
